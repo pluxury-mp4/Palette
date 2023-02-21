@@ -1,50 +1,50 @@
 import java.util.Scanner;
 
-public class Palette {
+public class Pallete {
     Scanner scanner = new Scanner(System.in);
     int[][] arrays;
     int size = scanner.nextInt();
     int soloIndex;
-    int Y,U,V,m;
+    int Y,U,V;
 
 
-    public Palette() {
+    public Pallete() {
         int[][] arrays = new int[size][3];
         this.arrays = arrays;
     }
 
-public int[][] getRandom(){
-    {
-        for (int i  = 0; i < arrays.length  ; i++) {
-            System.out.print(i +"(RGB)" + ". ");
-            for (int j = 0; j < arrays[i].length; j++) {
-                arrays[i][j] = (int)(Math.random()*256);
-                System.out.print(" " + arrays[i][j] + " ");
+    public int[][] getRandom(){
+        {
+            for (int i  = 0; i < arrays.length  ; i++) {
+                System.out.print(i +"(RGB)" + ". ");
+                for (int j = 0; j < arrays[i].length; j++) {
+                    arrays[i][j] = (int)(Math.random()*256);
+                    System.out.print(" " + arrays[i][j] + " ");
+                }
+                System.out.println();
             }
-            System.out.println();
         }
-    }
 
-    return new int[size][3];
-}
+        return new int[size][3];
+    }
 
 
     public int[][] getPalette() {
         {
-                for (int i  = 0; i < arrays.length  ; i++) {
-                    System.out.print(i +"(RGB)" + ". ");
-                    for (int j = 0; j < arrays[i].length; j++) {
-                        System.out.print(" " + arrays[i][j] + " ");
-                        Y = (int) (0.257 * arrays[i][j] + 0.504 * arrays[i][j] + 0.098 * arrays[i][j] +  arrays[i][j]);
-                        U = (int) (-0.148 * arrays[i][j] - 0.291 * arrays[i][j] + 0.439 * arrays[i][j] + 128);
-                        V = (int) ( 0.439 * arrays[i][j] - 0.368 * arrays[i][j] - 0.071 * arrays[i][j] + 128);
-                    }
-                    System.out.println();
-
-
-
+            for (int i  = 0; i < arrays.length  ; i++) {
+                System.out.print(i +"(RGB)" + ". ");
+                for (int j = 0; j < arrays[i].length; j++) {
+                    System.out.print(" " + arrays[i][j] + " ");
+                    Y = (int) (0.257 * arrays[i][j] + 0.504 * arrays[i][j] + 0.098 * arrays[i][j] +  arrays[i][j]);
+                    U = (int) (-0.148 * arrays[i][j] - 0.291 * arrays[i][j] + 0.439 * arrays[i][j] + 128);
+                    V = (int) ( 0.439 * arrays[i][j] - 0.368 * arrays[i][j] - 0.071 * arrays[i][j] + 128);
                 }
+                System.out.println();
+
+
+
             }
+        }
 
         return new int[size][3];
     }
@@ -85,49 +85,49 @@ public int[][] getRandom(){
         Scanner scanner = new Scanner(System.in);
         soloIndex = scanner.nextInt();
         getStar();
-            {
-                for (int i  = soloIndex; i < arrays.length  ; i+=arrays.length) {
-                    System.out.print(i +"(RGB)" + ". ");
-                    for (int j = 0; j < arrays[i].length; j++) {
-                        System.out.print(" " + arrays[i][j] + " ");
-                    }
-                    System.out.println();
-                    getStar();
-
+        {
+            for (int i  = soloIndex; i < arrays.length  ; i+=arrays.length) {
+                System.out.print(i +"(RGB)" + ". ");
+                for (int j = 0; j < arrays[i].length; j++) {
+                    System.out.print(" " + arrays[i][j] + " ");
                 }
+                System.out.println();
+                getStar();
+
             }
-            return new int[size][3];
         }
-
-
-public int[][] getRed(){
-    getStar();
-    System.out.print("Введите число (не более 255 и не менее 0) \n на которое хотите заменить крассный элемент: ");
-    Scanner scanner = new Scanner(System.in);
-    int red = scanner.nextInt();
-
-    if (red > 255){
-        red = 255;
+        return new int[size][3];
     }
-    if (red < 0){
-        red = 0;
 
-    }
-    arrays[soloIndex][0] = red;
-    {
-        for (int i  = soloIndex; i < arrays.length  ; i+=arrays.length) {
-            System.out.print(i +"(RGB)" + ". ");
-            for (int j = 0; j < arrays[i].length; j++) {
-                System.out.print(" " + arrays[i][j] + " ");
-            }
-            System.out.println();
-            getStar();
 
+    public int[][] getRed(){
+        getStar();
+        System.out.print("Введите число (не более 255 и не менее 0) \n на которое хотите заменить крассный элемент: ");
+        Scanner scanner = new Scanner(System.in);
+        int red = scanner.nextInt();
+
+        if (red > 255){
+            red = 255;
+        }
+        if (red < 0){
+            red = 0;
 
         }
+        arrays[soloIndex][0] = red;
+        {
+            for (int i  = soloIndex; i < arrays.length  ; i+=arrays.length) {
+                System.out.print(i +"(RGB)" + ". ");
+                for (int j = 0; j < arrays[i].length; j++) {
+                    System.out.print(" " + arrays[i][j] + " ");
+                }
+                System.out.println();
+                getStar();
+
+
+            }
+        }
+        return new int[size][3];
     }
-    return new int[size][3];
-}
 
     public int[][] getBlue(){
         getStar();
